@@ -5,10 +5,18 @@ class VideoDetail extends React.Component {
     if (!this.props.video) {
       return "Loading...";
     }
+    const videoSrc = `https://www.youtube.com/embed/${
+      this.props.video.id.videoId
+    }`;
     return (
-      <div className="ui segment">
-        <h4 className="ui header">{this.props.video.snippet.title}</h4>
-        <p>{this.props.video.snippet.description}</p>
+      <div>
+        <div className="ui embed">
+          <iframe src={videoSrc} />
+        </div>
+        <div className="ui segment">
+          <h4 className="ui header">{this.props.video.snippet.title}</h4>
+          <p>{this.props.video.snippet.description}</p>
+        </div>
       </div>
     );
   }
