@@ -2,7 +2,13 @@ import React from "react";
 
 class VideoItem extends React.Component {
   render() {
-    return <div>Video Item</div>;
+    const { snippet } = this.props.video;
+    return (
+      <div>
+        <img src={snippet.thumbnails.medium.url} alt="" />
+        {snippet.title}
+      </div>
+    );
   }
 }
 
